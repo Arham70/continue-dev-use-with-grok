@@ -75,8 +75,9 @@ function navigateTo(viewName, options = {}) {
       container.classList.remove('page-exit');
       container.classList.add('page-enter');
       
-      // Initialize view-specific logic
+            // Initialize view-specific logic
       if (viewName === 'login') initLoginView();
+      if (viewName === 'register') initRegisterView();
       
       setTimeout(() => {
         container.classList.remove('page-enter');
@@ -85,6 +86,7 @@ function navigateTo(viewName, options = {}) {
   } else {
     container.innerHTML = view.render();
     if (viewName === 'login') initLoginView();
+    if (viewName === 'register') initRegisterView();
   }
 }
 
@@ -111,7 +113,7 @@ function renderLogin() {
 }
 
 function renderRegister() {
-  return `<div class="login-container"><div class="login-card"><h2>Register View</h2><p>Coming in ONE-38</p></div></div>`;
+  return getRegisterHTML();
 }
 
 function renderForgotPassword() {
