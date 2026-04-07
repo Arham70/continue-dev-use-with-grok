@@ -78,7 +78,8 @@ function navigateTo(viewName, options = {}) {
             // Initialize view-specific logic
             if (viewName === 'login') initLoginView();
             if (viewName === 'register') initRegisterView();
-            if (viewName === 'forgot-password') initForgotPasswordView();
+                        if (viewName === 'forgot-password') initForgotPasswordView();
+            if (viewName === 'mfa-verify') initMFAVerifyView();
       
             setTimeout(() => {
               container.classList.remove('page-enter');
@@ -88,7 +89,8 @@ function navigateTo(viewName, options = {}) {
     container.innerHTML = view.render();
     if (viewName === 'login') initLoginView();
     if (viewName === 'register') initRegisterView();
-    if (viewName === 'forgot-password') initForgotPasswordView();
+        if (viewName === 'forgot-password') initForgotPasswordView();
+    if (viewName === 'mfa-verify') initMFAVerifyView();
   }
 }
 
@@ -123,7 +125,7 @@ function renderForgotPassword() {
 }
 
 function renderMFAVerify() {
-  return `<div class="login-container"><div class="login-card"><h2>MFA Verify View</h2><p>Coming in ONE-40</p></div></div>`;
+  return getMFAVerifyHTML();
 }
 
 function renderDashboard() {
