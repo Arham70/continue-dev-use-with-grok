@@ -18,6 +18,7 @@ const views = {
   register: { title: 'Register', render: renderRegister },
   'forgot-password': { title: 'Forgot Password', render: renderForgotPassword },
   'mfa-verify': { title: 'Two-Factor Authentication', render: renderMFAVerify },
+  'change-password': { title: 'Change Password', render: renderChangePassword },
   dashboard: { title: 'Dashboard', render: renderDashboard }
 };
 
@@ -79,7 +80,8 @@ function navigateTo(viewName, options = {}) {
             if (viewName === 'login') initLoginView();
             if (viewName === 'register') initRegisterView();
                         if (viewName === 'forgot-password') initForgotPasswordView();
-            if (viewName === 'mfa-verify') initMFAVerifyView();
+    if (viewName === 'mfa-verify') initMFAVerifyView();
+            if (viewName === 'change-password') initChangePasswordView();
       
             setTimeout(() => {
               container.classList.remove('page-enter');
@@ -91,6 +93,7 @@ function navigateTo(viewName, options = {}) {
     if (viewName === 'register') initRegisterView();
         if (viewName === 'forgot-password') initForgotPasswordView();
     if (viewName === 'mfa-verify') initMFAVerifyView();
+    if (viewName === 'change-password') initChangePasswordView();
   }
 }
 
@@ -126,6 +129,10 @@ function renderForgotPassword() {
 
 function renderMFAVerify() {
   return getMFAVerifyHTML();
+}
+
+function renderChangePassword() {
+  return getChangePasswordHTML();
 }
 
 function renderDashboard() {
