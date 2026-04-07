@@ -1,0 +1,213 @@
+/* ============================================
+   Responsive — Media Queries & Breakpoints
+   ============================================ */
+
+/* Mobile First - Small screens (default) */
+.login-container {
+  padding: var(--space-4);
+}
+
+.login-card {
+  padding: var(--space-6);
+}
+
+.login-logo {
+  width: 48px;
+  height: 48px;
+}
+
+.login-title {
+  font-size: var(--font-size-xl);
+}
+
+.btn {
+  height: 44px;
+}
+
+.form-input {
+  height: 44px;
+}
+
+/* Tablet - 640px and up */
+@media (min-width: 640px) {
+  .login-container {
+    padding: var(--space-6);
+  }
+
+  .login-card {
+    padding: var(--space-8);
+    max-width: 440px;
+  }
+
+  .login-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .login-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .btn {
+    height: var(--input-height);
+  }
+
+  .form-input {
+    height: var(--input-height);
+  }
+}
+
+/* Desktop - 1024px and up */
+@media (min-width: 1024px) {
+  .login-container {
+    padding: var(--space-8);
+  }
+
+  .login-card {
+    padding: var(--space-10);
+    max-width: 420px;
+    box-shadow: var(--shadow-2xl);
+  }
+
+  /* Desktop enhancements */
+  .login-card:hover {
+    box-shadow: var(--shadow-2xl);
+  }
+}
+
+/* Large Desktop - 1280px and up */
+@media (min-width: 1280px) {
+  .login-container {
+    background-size: cover;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 48px; /* Minimum touch target */
+  }
+
+  .toggle {
+    min-width: 48px;
+    min-height: 28px;
+  }
+
+  .password-toggle {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Remove hover effects on touch */
+  .btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+    box-shadow: inherit;
+  }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-spin,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .login-container {
+    background: white;
+  }
+
+  .theme-toggle,
+  .social-buttons {
+    display: none;
+  }
+
+  .btn {
+    border: 1px solid #000;
+  }
+}
+
+/* Landscape Orientation on Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .login-container {
+    padding: var(--space-2);
+    align-items: flex-start;
+  }
+
+  .login-card {
+    padding: var(--space-4);
+  }
+
+  .login-header {
+    margin-bottom: var(--space-4);
+  }
+
+  .login-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-2);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-3);
+  }
+
+  .login-footer {
+    margin-top: var(--space-4);
+  }
+}
+
+/* Focus Visible - Keyboard Users */
+@media (scripting: enabled) {
+  .btn:focus:not(:focus-visible),
+  .form-input:focus:not(:focus-visible),
+  .toggle:focus:not(:focus-visible),
+  a:focus:not(:focus-visible) {
+    outline: none;
+  }
+}
+
+/* Dark Mode System Preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg-primary: var(--color-gray-900);
+    --bg-secondary: var(--color-gray-800);
+    --bg-tertiary: var(--color-gray-700);
+    --bg-gradient-start: #1e1b4b;
+    --bg-gradient-end: #312e81;
+    
+    --text-primary: var(--color-gray-50);
+    --text-secondary: var(--color-gray-300);
+    --text-tertiary: var(--color-gray-500);
+    
+    --border-light: var(--color-gray-700);
+    --border-medium: var(--color-gray-600);
+    
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+  }
+}
