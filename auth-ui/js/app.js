@@ -76,17 +76,19 @@ function navigateTo(viewName, options = {}) {
       container.classList.add('page-enter');
       
             // Initialize view-specific logic
-      if (viewName === 'login') initLoginView();
-      if (viewName === 'register') initRegisterView();
+            if (viewName === 'login') initLoginView();
+            if (viewName === 'register') initRegisterView();
+            if (viewName === 'forgot-password') initForgotPasswordView();
       
-      setTimeout(() => {
-        container.classList.remove('page-enter');
-      }, 300);
+            setTimeout(() => {
+              container.classList.remove('page-enter');
+            }, 300);
     }, 150);
   } else {
     container.innerHTML = view.render();
     if (viewName === 'login') initLoginView();
     if (viewName === 'register') initRegisterView();
+    if (viewName === 'forgot-password') initForgotPasswordView();
   }
 }
 
@@ -117,7 +119,7 @@ function renderRegister() {
 }
 
 function renderForgotPassword() {
-  return `<div class="login-container"><div class="login-card"><h2>Forgot Password View</h2><p>Coming in ONE-39</p></div></div>`;
+  return getForgotPasswordHTML();
 }
 
 function renderMFAVerify() {
